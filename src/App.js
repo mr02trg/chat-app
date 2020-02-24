@@ -1,15 +1,27 @@
 import React from 'react';
 import './App.scss';
 
-import ChatList from './components/left-nav/ChatList';
-import Chat from './components/right-nav/Chat';
+import ChatApp from './components/chat-app/ChatApp';
+import Login from './components/public/Login';
+
+import {
+  Switch,
+  Route
+} from "react-router-dom";
 
 function App() {
   return (
-    <div className="d-flex w-100 p-3">
-      <ChatList />
-      <Chat />
+    <div>
+      <Switch>
+        <Route path="/chat">
+          <ChatApp />
+        </Route>
+        <Route path="/">
+          <Login />
+        </Route>
+    </Switch>
     </div>
+    
   );
 }
 

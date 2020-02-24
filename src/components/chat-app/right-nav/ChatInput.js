@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import './ChatInput.scss'
 
-import * as chatActions from '../../redux/actions/chatActions';
+import * as chatActions from '../../../redux/actions/chatActions';
 
 const ChatInput = () => {
     const [message, setMessage] = useState('')
