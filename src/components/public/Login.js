@@ -7,6 +7,8 @@ const Login = (props) => {
 
     const handleClick = (event) => {
         event.preventDefault();
+        // save username to session storage
+        sessionStorage.setItem('username', name);
         props.history.push('/chat');
     }
 

@@ -1,8 +1,13 @@
 import React from 'react'
+import './ChatTile.scss'
 
 const ChatTile = (props) => {
     const createRoom = () => {
         props.createRoom();
+    }
+    
+    const selectRoom = () => {
+        props.selectRoom(props.room);
     }
 
     return (
@@ -14,7 +19,9 @@ const ChatTile = (props) => {
         ) 
         :
         (
-            <li className="list-group-item">{props.message}</li>
+            <li className={`list-group-item select-room ${props.room.isActive ? 'active' : ''} `} 
+                onClick={selectRoom}>{props.room.name}
+            </li>
         )
     )
 }

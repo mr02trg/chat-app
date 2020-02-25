@@ -1,13 +1,11 @@
 import React from 'react'
-import { useSelector } from 'react-redux';
 import './ChatDisplay.scss'
 
-const ChatDisplay = () => {
-    const messages = useSelector(state => state.messages);
+const ChatDisplay = (props) => {
 
     return (
         <div className="chat-display">
-            {messages.map((x, i ) => <li key={i}>{x}</li>)}
+            {props.messages.map((x, i ) => <li key={i}>{x.content}</li>)}
         </div>
     )
 }

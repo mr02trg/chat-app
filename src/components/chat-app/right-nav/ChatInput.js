@@ -1,16 +1,12 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
 import './ChatInput.scss'
 
-import * as chatActions from '../../../redux/actions/chatActions';
-
-const ChatInput = () => {
+const ChatInput = (props) => {
     const [message, setMessage] = useState('')
-    const dispatch = useDispatch();
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        dispatch(chatActions.createMessage(message));
+        props.onSubmit(message);
         setMessage('');
     }
 
