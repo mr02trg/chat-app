@@ -6,7 +6,7 @@ import ChatContainer from './right-nav/ChatContainer'
 const ChatApp = () => {
     return (
         <div>
-            <div className="d-flex w-100 p-3">
+            <div className="d-flex w-100">
                 <ChatList />
                 <ChatContainer />
             </div>
