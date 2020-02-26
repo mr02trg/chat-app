@@ -12,6 +12,7 @@ export default function roomReducer(state = initalState.rooms, action) {
             });
             const activeRoomIndex = newState.findIndex(x => x.id === action.room.id);
             newState[activeRoomIndex].isActive = true;
+
             return newState;
         default:
             return state;

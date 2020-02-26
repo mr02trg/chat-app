@@ -14,7 +14,7 @@ const ChatTile = (props) => {
         props.isNewTile ?
         (
             <li className="list-group-item d-flex justify-content-end">
-                <button className="btn btn-primary" onClick={createRoom}>Start New Chat ....</button>
+                <button className="btn btn-primary" onClick={createRoom}>New Room</button>
             </li>
         ) 
         :
