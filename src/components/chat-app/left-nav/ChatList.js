@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import './ChatList.scss';
 import ChatTile from './ChatTile';
 
-import RoomSocket from '../../../socket/RoomSocket';
+import { RoomSocket } from '../../../socket/WebSocket';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { createRoom, selectRoom } from '../../../redux/actions/roomActions';
@@ -17,8 +17,7 @@ const ChatList = () => {
         RoomSocket.on(types.CREATE_ROOM_SUCCESS, (data) => {
             dispatch(createRoom(data))
         })    
-    // eslint-disable-next-line
-    }, []);
+    }, [dispatch]);
 
     const handleCreateRoom = () => {
         const newRoomId = rooms.length + 1;
