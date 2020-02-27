@@ -11,9 +11,10 @@ const ChatInput = (props) => {
     }
 
     return (
-        <form className="form-inline pt-4" onSubmit={handleSubmit}>
+        <form className="form-inline chat-input" onSubmit={handleSubmit}>
             <input type="text"
                 className="form-control flex-grow-1 mr-4"
+                required
                 value={message}
                 onChange={(event) => setMessage(event.target.value)} />
                 

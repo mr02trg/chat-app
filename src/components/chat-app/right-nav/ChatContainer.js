@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import ChatInput from './ChatInput';
 import ChatDisplay from './ChatDisplay';
 
-import { RoomSocket, ChatSocket } from '../../../socket/WebSocket';
+import { ChatSocket } from '../../../socket/WebSocket';
 
 import * as types from '../../../redux/actions/actionTypes';
 
