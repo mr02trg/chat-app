@@ -7,10 +7,12 @@ import { RoomSocket } from '../../../socket/WebSocket';
 import { useDispatch, useSelector } from 'react-redux';
 import { createRoom, selectRoom } from '../../../redux/actions/roomActions';
 import * as types from '../../../redux/actions/actionTypes';
+import { getActiveRoom } from '../../../redux/selectors/GetActiveRoom';
 
 
 const ChatList = () => {
     const rooms = useSelector(state => state.rooms);
+    const activeRoom = useSelector(state => getActiveRoom(state))
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -27,10 +29,7 @@ const ChatList = () => {
             isActive: false
         };
 
-        // notify other users
         RoomSocket.emit(types.CREATE_ROOM, newRoom);
-        
-        // dispatch create room action
         dispatch(createRoom(newRoom));
     }
 
@@ -38,6 +37,12 @@ const ChatList = () => {
         if (room.isActive) {
             return;
         }
+        const changeRoom = {
+            author: sessionStorage.getItem('username'),
+            leftRoomId: activeRoom !== undefined ? activeRoom.id : undefined,
+            enterRoomId: room.id
+        }
+        RoomSocket.emit(types.SELECT_ROOM, changeRoom)
         dispatch(selectRoom(room))
     }
 

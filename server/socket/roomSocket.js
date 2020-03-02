@@ -6,6 +6,11 @@ const establishRoomConnection = (io) => {
                     console.log(data);
                     socket.broadcast.emit('CREATE_ROOM_SUCCESS', data);
                 })
+
+                socket.on('SELECT_ROOM', (data) => {
+                    console.log(data);
+                    socket.broadcast.emit('SELECT_ROOM_SUCCESS', data);
+                })
             });
 }
 
